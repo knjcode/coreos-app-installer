@@ -1,0 +1,44 @@
+#!/bin/sh
+if mountpoint -q /target-bin; then
+  echo "Installing direnv to /target-bin"
+  cp /app/direnv /target-bin
+  echo "Installing fugu to /target-bin"
+  cp /app/fugu /target-bin
+  echo "Decompress and installing cf to /target-bin"
+  tar -xzf /app/cf.tgz -C /target-bin
+  echo "Installing docker-compose to /target-bin"
+  cp /app/docker-compose /target-bin
+  echo "Installing make to /target-bin"
+  cp /usr/bin/make /target-bin
+else
+  echo "/target-bin is not a mountpoint."
+  echo "You can either:"
+  echo "- re-run this container with -v /opt/bin:/target-bin"
+fi
+if mountpoint -q /target-var; then
+  echo "Installing bash-completion"
+  cp -R /usr/share/bash-completion /target-var
+else
+  echo "/target-var is not a mountpoint."
+  echo "You can either:"
+  echo "- re-run this container with -v /var:/target-var"
+fi
+if mountpoint -q /target-home; then
+  echo "Append settings into .bashrc"
+  if [ -L .bashrc ]; then
+    echo ".bashrc is symbolic link."
+    echo "unlink .bashrc as below."
+    echo "# cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc"
+  else
+    echo "Append direnv hook into .bashrc"
+    grep -q "eval \"\$(direnv hook bash)\"" /target-home/.bashrc || \
+    echo "eval \"\$(direnv hook bash)\"" >> /target-home/.bashrc
+    echo "Append bash-copletion settings into .bashrc"
+    grep -q "source /var/bash-completion/bash_completion" /target-home/.bashrc || \
+    echo "source /var/bash-completion/bash_completion" >> /target-home/.bashrc
+  fi
+else
+  echo "/target-home is not a mountoint."
+  echo "You can either:"
+  echo "- re-run this container with -v \$HOME:/target-home"
+fi
