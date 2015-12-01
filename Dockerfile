@@ -16,8 +16,8 @@ RUN go get github.com/tools/godep \
   && cd /go/src/github.com/mattes/fugu/fugu \
   && GOOS=linux GOARCH=amd64 godep go build -o /app/fugu
 
-# Download cf 6.13.0
-ENV CF_VERSION 6.13.0
+# Download cf 6.14.0
+ENV CF_VERSION 6.14.0
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=$CF_VERSION" > /app/cf.tgz
 
 # Download docker-compose 1.5.0
