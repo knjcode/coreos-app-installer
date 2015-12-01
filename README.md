@@ -29,6 +29,7 @@ $ cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc
 - fugu
 - cf
 - docker-compose
+- docker-machine
 - make
 
 ## Additional settings

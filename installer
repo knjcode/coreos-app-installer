@@ -8,6 +8,8 @@ if mountpoint -q /target-bin; then
   tar -xzf /app/cf.tgz -C /target-bin
   echo "Installing docker-compose to /target-bin"
   cp /app/docker-compose /target-bin
+  echo "Installing docker-machine to /target-bin"
+  cp /app/docker-machine* /target-bin
   echo "Installing make to /target-bin"
   cp /usr/bin/make /target-bin
 else
