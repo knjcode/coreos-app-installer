@@ -25,10 +25,12 @@ ENV DOCKER_COMPOSE_VERSION 1.5.2
 RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-Linux-x86_64 > /app/docker-compose \
   && chmod +x /app/docker-compose
 
-# install unzip
-RUN apt-get update && apt-get install -y unzip \
+# Download unzip jq  bash-completions (with docker and docker-compose)
+RUN apt-get update && apt-get install -y unzip jq bash-completion \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O /usr/share/bash-completion/completions/docker \
+  && wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -O /usr/share/bash-completion/completions/docker-compose
 
 # Download docker-machine 0.5.2
 ENV DOCKER_MACHINE_VERSION 0.5.2
@@ -36,12 +38,6 @@ RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE
   && cd /app \
   && unzip machine.zip \
   && rm machine.zip
-
-# apt-get bash-completions (with docker and docker-compose)
-RUN apt-get update && apt-get install -y bash-completion \
-  && rm -rf /var/lib/apt/lists/* \ 
-  && wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O /usr/share/bash-completion/completions/docker \
-  && wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -O /usr/share/bash-completion/completions/docker-compose
 
 ADD installer /installer
 

@@ -31,6 +31,7 @@ $ cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc
 - docker-compose
 - docker-machine
 - make
+- jq
 
 ## Additional settings
 
