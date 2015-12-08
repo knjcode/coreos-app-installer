@@ -20,8 +20,8 @@ RUN go get github.com/tools/godep \
 ENV CF_VERSION 6.14.0
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=$CF_VERSION" > /app/cf.tgz
 
-# Download docker-compose 1.5.1
-ENV DOCKER_COMPOSE_VERSION 1.5.1
+# Download docker-compose 1.5.2
+ENV DOCKER_COMPOSE_VERSION 1.5.2
 RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-Linux-x86_64 > /app/docker-compose \
   && chmod +x /app/docker-compose
 
