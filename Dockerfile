@@ -39,6 +39,12 @@ ENV DOCKER_MACHINE_VERSION 0.5.4
 RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine_linux-amd64 > /app/docker-machine \
   && chmod +x /app/docker-machine
 
+# Make ghq
+RUN go get github.com/motemen/ghq \
+  && cd /go/src/github.com/motemen/ghq \
+  && make \
+  && mv ghq /app
+
 ADD installer /installer
 
 RUN chmod +x /installer

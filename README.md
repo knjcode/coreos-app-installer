@@ -32,6 +32,7 @@ $ cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc
 - docker-machine
 - make
 - jq
+- ghq
 
 ## Additional settings
 
