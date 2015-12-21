@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -y unzip jq bash-completion \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# Download docker and docker-compose bash-completions
+# Download bash-completions
 RUN wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -O /usr/share/bash-completion/completions/docker \
-  && wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -O /usr/share/bash-completion/completions/docker-compose
+  && wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -O /usr/share/bash-completion/completions/docker-compose \
+  && wget https://raw.githubusercontent.com/tokubass/ghq-bash-completion/master/.ghq-completion.bash -O /usr/share/bash-completion/completions/ghq
 
 # Make fugu
 RUN go get github.com/tools/godep \
