@@ -34,12 +34,10 @@ ENV DOCKER_COMPOSE_VERSION 1.5.2
 RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-Linux-x86_64 > /app/docker-compose \
   && chmod +x /app/docker-compose
 
-# Download docker-machine 0.5.2
-ENV DOCKER_MACHINE_VERSION 0.5.2
-RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine_linux-amd64.zip > /app/machine.zip \
-  && cd /app \
-  && unzip machine.zip \
-  && rm machine.zip
+# Download docker-machine 0.5.4
+ENV DOCKER_MACHINE_VERSION 0.5.4
+RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine_linux-amd64 > /app/docker-machine \
+  && chmod +x /app/docker-machine
 
 ADD installer /installer
 
