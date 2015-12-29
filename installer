@@ -44,6 +44,9 @@ if mountpoint -q /target-home; then
     echo "Append bash-copletion settings into .bashrc"
     grep -q "source /var/bash-completion/bash_completion" /target-home/.bashrc || \
     echo "source /var/bash-completion/bash_completion" >> /target-home/.bashrc
+    echo "Append repository listing alias into .bashrc"
+    grep -q "alias gh=\"cd \$(ghq list -p | peco)\"" /target-home/.bashrc || \
+    echo "alias gh=\"cd \$(ghq list -p | peco)\"" >> /target-home/.bashrc
   fi
 else
   echo "/target-home is not a mountoint."

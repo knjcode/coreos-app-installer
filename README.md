@@ -39,3 +39,4 @@ $ cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc
 
 - direnv hook for bash
 - bash completion
+- repository listing alias (using ghq and peco)
