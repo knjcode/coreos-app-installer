@@ -33,6 +33,7 @@ $ cp $(readlink .bashrc) .bashrc.new && mv .bashrc.new .bashrc
 - make
 - jq
 - ghq
+- peco
 
 ## Additional settings
 

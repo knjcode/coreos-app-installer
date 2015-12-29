@@ -16,6 +16,8 @@ if mountpoint -q /target-bin; then
   cp /usr/bin/jq /target-bin
   echo "Installing ghq to /target-bin"
   cp /app/ghq /target-bin
+  echo "Installing peco to /target-bin"
+  cp /app/peco /target-bin
 else
   echo "/target-bin is not a mountpoint."
   echo "You can either:"

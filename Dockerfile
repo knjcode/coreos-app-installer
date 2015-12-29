@@ -46,6 +46,12 @@ RUN go get github.com/motemen/ghq \
   && make \
   && mv ghq /app
 
+# Make peco
+RUN go get github.com/peco/peco \
+  && cd /go/src/github.com/peco/peco \
+  && go build cmd/peco/peco.go \
+  && mv peco /app
+
 ADD installer /installer
 
 RUN chmod +x /installer
