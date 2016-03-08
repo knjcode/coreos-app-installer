@@ -1,4 +1,4 @@
-FROM golang
+FROM golang:1.5.3
 
 # Create app dir
 RUN mkdir /app
