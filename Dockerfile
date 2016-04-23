@@ -26,8 +26,8 @@ RUN go get github.com/direnv/direnv \
   && make \
   && mv direnv /app
 
-# Download cf 6.16.1
-ENV CF_VERSION 6.16.1
+# Download cf 6.17.0
+ENV CF_VERSION 6.17.0
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=$CF_VERSION" > /app/cf.tgz
 
 # Download docker-compose 1.6.2
