@@ -37,7 +37,7 @@ RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_
 
 # Download docker-machine 0.7.0
 ENV DOCKER_MACHINE_VERSION 0.7.0
-RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine_linux-amd64 > /app/docker-machine \
+RUN curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine-linux-x86_64 > /app/docker-machine \
   && chmod +x /app/docker-machine
 
 # Make ghq
