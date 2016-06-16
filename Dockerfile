@@ -22,7 +22,7 @@ RUN go get github.com/tools/godep \
 # Make direnv
 RUN go get github.com/direnv/direnv \
   && cd /go/src/github.com/direnv/direnv \
-  && git checkout v2.7.0 \
+  && git checkout v2.8.1 \
   && make \
   && mv direnv /app
 
