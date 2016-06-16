@@ -30,8 +30,8 @@ RUN go get github.com/direnv/direnv \
 ENV CF_VERSION 6.19.0
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=$CF_VERSION" > /app/cf.tgz
 
-# Download docker-compose 1.7.0
-ENV DOCKER_COMPOSE_VERSION 1.7.0
+# Download docker-compose 1.7.1
+ENV DOCKER_COMPOSE_VERSION 1.7.1
 RUN curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-Linux-x86_64 > /app/docker-compose \
   && chmod +x /app/docker-compose
 
